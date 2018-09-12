@@ -113,6 +113,22 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1104294252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1783534717063022, guid: 69add719b01c5eb40b66e66d63efdac5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2035641810}
+--- !u!114 &1104294255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104294252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce39562bb824d229f40676c2570ae8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2035641810
 Prefab:
   m_ObjectHideFlags: 0
@@ -151,6 +167,16 @@ Prefab:
     - target: {fileID: 4905809161279754, guid: 69add719b01c5eb40b66e66d63efdac5, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844674851513146, guid: 69add719b01c5eb40b66e66d63efdac5,
+        type: 2}
+      propertyPath: rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 61060718096555394, guid: 69add719b01c5eb40b66e66d63efdac5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69add719b01c5eb40b66e66d63efdac5, type: 2}
