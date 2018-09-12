@@ -2,7 +2,8 @@
 
 namespace Game.Tank
 {
-	public class TurretController : MonoBehaviour {
+	public class TurretController : MonoBehaviour
+	{
 		[SerializeField]
 		private float rotationSpeed;
 
@@ -10,12 +11,12 @@ namespace Game.Tank
 		{
 			TurnLeft();
 		}
-		
+
 		public void TurnLeft()
 		{
 			transform.parent.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
 		}
-	
+
 		public void TurnRight()
 		{
 			transform.parent.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
