@@ -8,7 +8,7 @@ namespace Game.Tank.Stimulus
 	{
 		public event StimulusEventHandler OnStimulusActivated;
 
-		private void OnTriggerEnter2D(Collider2D other)
+		private void OnTriggerStay2D(Collider2D other)
 		{
 			if (other.isTrigger)
 				return;

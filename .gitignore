@@ -70,3 +70,5 @@ sysinfo.txt
 /out/
 
 # mpeltonen/sbt-idea plugin
+/TankGame/.idea/.idea.TankGame/.idea/workspace.xml
+workspace.xml
