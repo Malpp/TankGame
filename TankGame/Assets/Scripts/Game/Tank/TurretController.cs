@@ -6,7 +6,11 @@ namespace Game.Tank
 		[SerializeField]
 		private float rotationSpeed;
 
-
+		private void Update()
+		{
+			TurnLeft();
+		}
+		
 		public void TurnLeft()
 		{
 			transform.parent.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);

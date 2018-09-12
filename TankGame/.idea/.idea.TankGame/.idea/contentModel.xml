@@ -17,8 +17,11 @@
             </e>
             <e p="Tank" t="Include">
               <e p="Stimulus" t="Include">
+                <e p="CommanderStimulus.cs" t="Include" />
+                <e p="DriverStimulus.cs" t="Include" />
                 <e p="HearingStimulus.cs" t="Include" />
                 <e p="Stimulus.cs" t="Include" />
+                <e p="TurretStimulus.cs" t="Include" />
               </e>
               <e p="TankController.cs" t="Include" />
               <e p="TurretController.cs" t="Include" />
