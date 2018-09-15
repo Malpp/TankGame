@@ -8,6 +8,9 @@
         <e p="Scripts" t="Include">
           <e p="Game" t="Include">
             <e p="Pandemonium" t="Include">
+              <e p="Cognitive" t="Include">
+                <e p="CognitiveMoveTarget.cs" t="Include" />
+              </e>
               <e p="Decision.cs" t="Include" />
               <e p="Feature" t="Include">
                 <e p="FeatureEnemy.cs" t="Include" />
@@ -26,6 +29,9 @@
               </e>
               <e p="TankController.cs" t="Include" />
               <e p="TurretController.cs" t="Include" />
+            </e>
+            <e p="Values" t="Include">
+              <e p="Tags.cs" t="Include" />
             </e>
           </e>
         </e>

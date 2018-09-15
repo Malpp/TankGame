@@ -1,10 +1,15 @@
 ﻿using Game.Tank.Stimulus;
+using Game.Values;
 using UnityEngine;
 
 namespace Game.Pandemonium.Feature
 {
+	public delegate void FeatureEnemyEventHandler(Vector2 enemyPosition);
+	
 	public class FeatureEnemy : MonoBehaviour
 	{
+		public event FeatureEnemyEventHandler OnEnemySeen;
+		
 		private Transform rootTransform;
 		private DriverStimulus driverStimulus;
 		private CommanderStimulus commanderStimulus;
@@ -25,12 +30,15 @@ namespace Game.Pandemonium.Feature
 
 		private void OnEnable()
 		{
-			//driverStimulus.OnStimulusActivated += OnEnemySeen;
+			driverStimulus.OnStimulusActivated += OnGameObjectSeen;
+			commanderStimulus.OnStimulusActivated += OnGameObjectSeen;
+			turretStimulus.OnStimulusActivated += OnGameObjectSeen;
 		}
 
-		private void OnEnemySeen(GameObject enemyGameObject)
+		private void OnGameObjectSeen(Collision2D otherCollision2D)
 		{
-			
+			if (otherCollision2D.transform.root.CompareTag(Tags.Tank))
+				OnEnemySeen?.Invoke(otherCollision2D.transform.root.position);
 		}
 	}
 }
