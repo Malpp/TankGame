@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Streetlamp\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_TankGame.349122552.00" t="ExcludeRecursive" />
-    <e p="E:\Prog_Projects\UnityProjects\Tank_TP1_NT\TankGame\TankGame" t="IncludeRecursive">
+    <e p="C:\Programming\C#\TankGame\TankGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CannonShot.cs" t="Include" />
-        <e p="CannonShotBody.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Game" t="Include">
             <e p="Pandemonium" t="Include">
@@ -24,6 +21,8 @@
             <e p="Tank" t="Include">
               <e p="Ammo.cs" t="Include" />
               <e p="Cannon.cs" t="Include" />
+              <e p="CannonShot.cs" t="Include" />
+              <e p="CannonShotBody.cs" t="Include" />
               <e p="Stimulus" t="Include">
                 <e p="CommanderStimulus.cs" t="Include" />
                 <e p="DriverStimulus.cs" t="Include" />
@@ -48,5 +47,7 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
+    <e p="C:\Users\Doge\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Doge\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_TankGame.-822822838.00" t="ExcludeRecursive" />
   </component>
 </project>
