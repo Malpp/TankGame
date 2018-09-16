@@ -7,8 +7,9 @@ namespace Game.Pandemonium
 	public class Decision : MonoBehaviour
 	{
 		[SerializeField] private Vector2 target;
-		private Transform rootTransform;
 		private CognitiveMoveTarget cognitiveMoveTarget;
+		private bool moveTargetFoundThisFrame = false;
+		private bool moveTargetSeenByDriver = false;
 
 		private Vector2 lastSeenEnemyPosition;
 		private TankController tankController;
@@ -20,7 +21,6 @@ namespace Game.Pandemonium
 
 		private void InitializeComponent()
 		{
-			rootTransform = transform.root;
 			cognitiveMoveTarget = GetComponent<CognitiveMoveTarget>();
 			tankController = GetComponent<TankController>();
 		}
@@ -28,12 +28,32 @@ namespace Game.Pandemonium
 		private void OnEnable()
 		{
 			cognitiveMoveTarget.OnPriorityMoveTargetSelected += OnTargetFound;
+			cognitiveMoveTarget.OnPriorityMoveTargetSeenByDriver += OnTargetSeenByDriver;
 		}
 
 		private void OnTargetFound(Vector2 position)
 		{
+			moveTargetFoundThisFrame = true;
 			target = position;
-			tankController.MoveForward();
+		}
+
+		private void OnTargetSeenByDriver()
+		{
+			moveTargetSeenByDriver = true;
+		}
+
+		private void LateUpdate()
+		{
+			if (moveTargetFoundThisFrame)
+			{
+				tankController.RotateTowardsTarget(target);
+				moveTargetFoundThisFrame = false;
+				if (moveTargetSeenByDriver)
+				{
+					moveTargetSeenByDriver = false;
+					tankController.MoveForward();
+				}
+			}
 		}
 	}
 }

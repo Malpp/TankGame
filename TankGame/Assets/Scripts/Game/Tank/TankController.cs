@@ -34,5 +34,11 @@ namespace Game.Tank
 		{
 			body.AddTorque(-rotationSpeed * Time.deltaTime);
 		}
+
+		public void RotateTowardsTarget(Vector2 position)
+		{
+			var desiredOrientation = Quaternion.LookRotation(Vector3.forward, position);
+			transform.root.rotation = Quaternion.RotateTowards(transform.root.rotation, desiredOrientation, rotationSpeed * Time.deltaTime);
+		}
 	}
 }
