@@ -9,7 +9,6 @@ namespace Game.Tank
 
 		private void Update()
 		{
-			TurnLeft();
 		}
 
 		public void TurnLeft()

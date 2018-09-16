@@ -2,15 +2,20 @@
 
 namespace Game.Tank.Stimulus
 {
-	public delegate void StimulusEventHandler(Collision2D other);
+	public delegate void StimulusEventHandler(Collider2D other);
 
-	public class Stimulus : MonoBehaviour
+	public abstract class Stimulus : MonoBehaviour
 	{
 		public event StimulusEventHandler OnStimulusActivated;
 
-		private void OnCollisionStay2D(Collision2D other)
+		private void OnTriggerStay2D(Collider2D other)
 		{
 			OnStimulusActivated?.Invoke(other);
+			OnStimulusTriggered(other);
+		}
+
+		protected virtual void OnStimulusTriggered(Collider2D other)
+		{
 		}
 	}
 }

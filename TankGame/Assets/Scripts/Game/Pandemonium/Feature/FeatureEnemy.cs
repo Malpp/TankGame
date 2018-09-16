@@ -35,7 +35,7 @@ namespace Game.Pandemonium.Feature
 			turretStimulus.OnStimulusActivated += OnGameObjectSeen;
 		}
 
-		private void OnGameObjectSeen(Collision2D otherCollision2D)
+		private void OnGameObjectSeen(Collider2D otherCollision2D)
 		{
 			if (otherCollision2D.transform.root.CompareTag(Tags.Tank))
 				OnEnemySeen?.Invoke(otherCollision2D.transform.root.position);
