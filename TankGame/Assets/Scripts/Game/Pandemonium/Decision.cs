@@ -20,7 +20,5 @@ namespace Game.Pandemonium
 			rootTransform = transform.root;
 			cognitiveMoveTarget = rootTransform.GetComponentInChildren<CognitiveMoveTarget>();
 		}
-		
-		
 	}
 }
