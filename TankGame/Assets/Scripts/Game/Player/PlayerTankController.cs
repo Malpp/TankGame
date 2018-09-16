@@ -40,6 +40,12 @@ namespace Game.Player
 			
 			if(Input.GetKeyDown(KeyCode.Space))
 				turretController.Shoot();
+			
+			if(Input.GetKey(KeyCode.Q))
+				turretController.TurnLeft();
+			
+			if(Input.GetKey(KeyCode.E))
+				turretController.TurnRight();
 		}
 	}
 }
