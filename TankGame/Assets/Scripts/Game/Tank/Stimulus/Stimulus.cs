@@ -6,10 +6,15 @@ namespace Game.Tank.Stimulus
 
 	public abstract class Stimulus : MonoBehaviour
 	{
+		[SerializeField] private Transform lastTransformSeen;
+		
 		public event StimulusEventHandler OnStimulusActivated;
 
 		private void OnTriggerStay2D(Collider2D other)
 		{
+			if(other.isTrigger)
+				return;
+			lastTransformSeen = other.transform;
 			OnStimulusActivated?.Invoke(other);
 			OnStimulusTriggered(other);
 		}
