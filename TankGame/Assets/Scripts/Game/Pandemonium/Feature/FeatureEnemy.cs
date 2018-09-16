@@ -37,7 +37,7 @@ namespace Game.Pandemonium.Feature
 
 		private void OnGameObjectSeen(Collider2D otherCollision2D)
 		{
-			if (otherCollision2D.transform.root.CompareTag(Tags.Tank))
+			if (otherCollision2D.CompareTag(Tags.Tank))
 				OnEnemySeen?.Invoke(otherCollision2D.transform.root.position);
 		}
 	}

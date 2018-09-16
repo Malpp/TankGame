@@ -23,7 +23,7 @@ namespace Game.Pandemonium.Cognitive
 		private void InitializeComponent()
 		{
 			rootTransform = transform.root;
-			featureEnemy = rootTransform.GetComponentInChildren<FeatureEnemy>();
+			featureEnemy = GetComponent<FeatureEnemy>();
 		}
 
 		private void OnEnable()
@@ -34,11 +34,6 @@ namespace Game.Pandemonium.Cognitive
 		private void OnEnemySeen(Vector2 position)
 		{
 			lastSeenEnemyPosition = position;
-		}
-
-		// TODO: Change this update to determine current priority target.
-		private void LateUpdate()
-		{
 			OnPriorityMoveTargetSelected?.Invoke(lastSeenEnemyPosition);
 		}
 	}
