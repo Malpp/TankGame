@@ -35,6 +35,8 @@ namespace Game.Tank.Stimulus
 				return;
 			}
 			
+			thingsStimulated.RemoveAll(d => d == null);
+			
 			foreach (var other in thingsStimulated)
 			{
 				lastTransformSeen = other.transform;
