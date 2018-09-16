@@ -27,6 +27,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1009319916694884
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4375206885933834}
+  - component: {fileID: 114371377413261826}
+  m_Layer: 0
+  m_Name: Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1093910816449794
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4260096946112380}
+  - component: {fileID: 114838240617135302}
+  m_Layer: 0
+  m_Name: Ammo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1121418766689994
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +71,7 @@ GameObject:
   - component: {fileID: 61060718096555394}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,6 +277,32 @@ Transform:
   m_Father: {fileID: 4905809161279754}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4260096946112380
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093910816449794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4996872019977628}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4375206885933834
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009319916694884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4996872019977628}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4605234826163080
 Transform:
   m_ObjectHideFlags: 1
@@ -317,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680866660865002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4042310783187022}
@@ -343,6 +401,8 @@ Transform:
   m_Children:
   - {fileID: 4605234826163080}
   - {fileID: 4673093378862708}
+  - {fileID: 4375206885933834}
+  - {fileID: 4260096946112380}
   m_Father: {fileID: 4905809161279754}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -490,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce39562bb824d229f40676c2570ae8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastTransformSeen: {fileID: 0}
 --- !u!114 &114179156231069594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d07cc1313df48a284c52e99fb0c5e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastTransformSeen: {fileID: 0}
 --- !u!114 &114193060667425162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,6 +574,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85362740484bfb82b8c25d3e74a15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastTransformSeen: {fileID: 0}
+--- !u!114 &114371377413261826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009319916694884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ce45a9cffb3a6418832395893a6b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonShotPrefab: {fileID: 1897001201786600, guid: a219a09be4139f945b55588b35f167f9,
+    type: 2}
 --- !u!114 &114542735816256092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee03ff9c15840f5a41b695cbefaf0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastTransformSeen: {fileID: 0}
 --- !u!114 &114704690736090034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -550,7 +627,19 @@ MonoBehaviour:
   moveTankBackward: 115
   turnTankLeft: 97
   turnTankRight: 100
-  isPlayerTank: 1
+  shootCannon: 0
+--- !u!114 &114838240617135302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093910816449794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc44b645fdfda32449e28ed39b75c85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 5
 --- !u!114 &114844674851513146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,7 +689,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2eff423b1e0a77a489d200c03c194005, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -738,7 +827,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cb508391036a81140aa22a97eaa31d45, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

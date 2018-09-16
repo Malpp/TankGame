@@ -10,7 +10,7 @@ namespace Game.Tank.Stimulus
 	{
 		[SerializeField] private Transform lastTransformSeen;
 
-		private List<Collider2D> thingsStimulated = new List<Collider2D>();
+		private readonly List<Collider2D> thingsStimulated = new List<Collider2D>();
 
 		public event StimulusEventHandler OnStimulusActivated;
 		public event StimulusEventHandler OnStimulusEmpty;

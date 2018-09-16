@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Game.Tank
 {
@@ -7,8 +8,16 @@ namespace Game.Tank
 		[SerializeField]
 		private float rotationSpeed;
 
-		private void Update()
+		private Cannon cannon;
+
+		private void Awake()
 		{
+			cannon = transform.parent.GetComponentInChildren<Cannon>();
+		}
+
+		public void Shoot()
+		{
+			cannon.Shoot();
 		}
 
 		public void TurnLeft()

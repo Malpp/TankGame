@@ -156,35 +156,6 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 212950371549453286, guid: 69add719b01c5eb40b66e66d63efdac5,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212950371549453286, guid: 69add719b01c5eb40b66e66d63efdac5,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212950371549453286, guid: 69add719b01c5eb40b66e66d63efdac5,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212067185124204662, guid: 69add719b01c5eb40b66e66d63efdac5,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212067185124204662, guid: 69add719b01c5eb40b66e66d63efdac5,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1121418766689994, guid: 69add719b01c5eb40b66e66d63efdac5, type: 2}
-      propertyPath: m_TagString
-      value: tank
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69add719b01c5eb40b66e66d63efdac5, type: 2}
   m_IsPrefabAsset: 0

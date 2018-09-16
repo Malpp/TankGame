@@ -14,18 +14,18 @@ namespace Game.Player
 		[SerializeField]
 		private KeyCode turnTankRight;
 		[SerializeField]
-		private bool isPlayerTank;
+		private KeyCode shootCannon;
 		private TankController tankController;
+		private TurretController turretController;
 
 		private void Awake()
 		{
 			tankController = transform.GetComponent<TankController>();
+			turretController = transform.parent.GetComponentInChildren<TurretController>();
 		}
 
 		private void Update()
 		{
-			if (!isPlayerTank)
-				return;
 			if (Input.GetKey(moveTankForward))
 				tankController.MoveForward();
 
@@ -37,6 +37,9 @@ namespace Game.Player
 
 			if (Input.GetKey(turnTankRight))
 				tankController.TurnRight();
+			
+			if(Input.GetKeyDown(KeyCode.Space))
+				turretController.Shoot();
 		}
 	}
 }
