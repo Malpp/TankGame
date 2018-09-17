@@ -627,7 +627,7 @@ MonoBehaviour:
   moveTankBackward: 115
   turnTankLeft: 97
   turnTankRight: 100
-  shootCannon: 0
+  shootCannon: 32
 --- !u!114 &114838240617135302
 MonoBehaviour:
   m_ObjectHideFlags: 1
