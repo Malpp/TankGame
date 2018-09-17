@@ -12,11 +12,11 @@ namespace Game
 		private GameObject player;
 		private GameObject enemy;
 		private Coroutine scoreCoroutine;
-		private bool someoneWon = false;
+		private bool someoneWon;
 
 		public event Delegates.EventHandlerT<int> OnScoreChanged;
 		public event Delegates.EventHandler OnPlayerWin;
-		public event Delegates.EventHandler OnAIWin;
+		public event Delegates.EventHandler OnAiWin;
 
 		private void OnEnable()
 		{
@@ -30,7 +30,7 @@ namespace Game
 			if (player == null)
 			{
 				SomeoneWon();
-				OnAIWin?.Invoke();
+				OnAiWin?.Invoke();
 			}
 
 			if (score < 60 && enemy != null) return;

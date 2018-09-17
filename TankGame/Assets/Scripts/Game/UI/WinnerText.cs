@@ -18,7 +18,7 @@ namespace Game.UI
 
 		private void OnEnable()
 		{
-			gameController.OnAIWin += OnAiWin;
+			gameController.OnAiWin += OnAiWin;
 			gameController.OnPlayerWin += OnPlayerWin;
 		}
 
