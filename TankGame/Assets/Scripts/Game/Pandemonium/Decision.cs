@@ -75,6 +75,11 @@ namespace Game.Pandemonium
 					tankController.MoveForward();
 				}
 			}
+			else
+			{
+				tankController.TurnRight();
+				tankController.MoveForward();
+			}
 
 			if (shootTargetFoundThisFrame)
 			{
@@ -85,6 +90,7 @@ namespace Game.Pandemonium
 					turretController.Shoot();
 				}
 			}
+			
 		}
 	}
 }
