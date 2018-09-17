@@ -38,7 +38,7 @@ namespace Game.Tank
 		public void RotateTowardsTarget(Vector2 position)
 		{
 			var desiredOrientation = Quaternion.LookRotation(Vector3.forward, position);
-			transform.root.rotation = Quaternion.RotateTowards(transform.root.rotation, desiredOrientation, rotationSpeed * Time.deltaTime);
+			transform.root.rotation = Quaternion.RotateTowards(transform.root.rotation, desiredOrientation, rotationSpeed * Time.deltaTime * 5);
 		}
 	}
 }
