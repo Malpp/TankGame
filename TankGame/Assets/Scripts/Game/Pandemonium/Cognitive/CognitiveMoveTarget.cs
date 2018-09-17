@@ -14,7 +14,7 @@ namespace Game.Pandemonium.Cognitive
 		private FeatureEnemy featureEnemy;
 		private FeatureAmmoContainer featureAmmoContainer;
 		private AmmoReservesSensor ammoSensor;
-		private bool isOutOfAmmo = false;
+		private bool isOutOfAmmo;
 
 		private void Awake()
 		{

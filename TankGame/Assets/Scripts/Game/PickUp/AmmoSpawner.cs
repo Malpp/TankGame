@@ -1,62 +1,24 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoSpawner : MonoBehaviour
+namespace Game.PickUp
 {
-	private List<Transform> spawnerList;
-	[SerializeField] private GameObject ammo;
-	private int indexSpawner = 0;
-	private int nbOfAmmoPack = 0;
-	[SerializeField] private float timeBufferInSecond = 3f;
-	private float timeFrame = 0;
-	public int NbOfAmmoPack
+	public class AmmoSpawner : MonoBehaviour
 	{
-		get { return nbOfAmmoPack; }
-		set { nbOfAmmoPack = value; }
-	}
-	private void Awake()
-	{
-		spawnerList = new List<Transform>();
-		foreach (Transform child in transform)
-		{
-			spawnerList.Add(child);
-		}
-	}
+		[SerializeField] private GameObject ammoPickupPrefab;
+		[SerializeField] private float spawnDelay;
+		[SerializeField] private float spawnDelayRandomness;
 
-	// Use this for initialization
-	void Start () {
-		SpawnAmmoPack(spawnerList[indexSpawner]);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Spawn();
-	}
-
-	private void Spawn()
-	{
-		if (Time.time - timeFrame > timeBufferInSecond && nbOfAmmoPack < 2)
+		private void OnEnable()
 		{
-			if (spawnerList[indexSpawner].childCount == 0)
-			{
-				SpawnAmmoPack(spawnerList[indexSpawner]);
-				timeFrame = Time.time;
-			}
-			else
-			{
-				indexSpawner++;
-				if (indexSpawner == spawnerList.Count)
-					indexSpawner = 0;
-			}
+			StartCoroutine(SpawnAmmoPack());
 		}
-	}
-	private void SpawnAmmoPack(Transform spawner)
-	{
-		indexSpawner++;
-		nbOfAmmoPack++;
-		Instantiate(ammo, spawner);
-		if (indexSpawner == spawnerList.Count)
-			indexSpawner = 0;
+
+		private IEnumerator SpawnAmmoPack()
+		{
+			yield return new WaitForSeconds(spawnDelay + Random.Range(-spawnDelayRandomness, spawnDelayRandomness));
+			if (transform.childCount == 0)
+				Instantiate(ammoPickupPrefab, transform);
+		}
 	}
 }

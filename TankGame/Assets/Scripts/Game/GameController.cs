@@ -12,6 +12,7 @@ namespace Game
 		private GameObject player;
 		private GameObject enemy;
 		private Coroutine scoreCoroutine;
+		private bool someoneWon = false;
 
 		public event Delegates.EventHandlerT<int> OnScoreChanged;
 		public event Delegates.EventHandler OnPlayerWin;
@@ -28,14 +29,14 @@ namespace Game
 		{
 			if (player == null)
 			{
-				StopCoroutine(scoreCoroutine);
+				SomeoneWon();
 				OnAIWin?.Invoke();
 			}
 
 			if (score < 60 && enemy != null) return;
 			OnPlayerWin?.Invoke();
 			enemy.GetComponentInChildren<Health>().Die();
-			StopCoroutine(scoreCoroutine);
+			SomeoneWon();
 		}
 
 		private IEnumerator AddScoreCoroutine()
@@ -46,6 +47,12 @@ namespace Game
 				score++;
 				OnScoreChanged?.Invoke(score);
 			}
+		}
+
+		private void SomeoneWon()
+		{
+			someoneWon = true;
+			StopCoroutine(scoreCoroutine);
 		}
 	}
 }
