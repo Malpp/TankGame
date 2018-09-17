@@ -13,10 +13,8 @@ namespace Game.Pandemonium.Cognitive
 
 		private FeatureEnemy featureEnemy;
 		private FeatureAmmoContainer featureAmmoContainer;
-		private AmmoSensor ammoSensor;
+		private AmmoReservesSensor ammoSensor;
 		private bool isOutOfAmmo = false;
-
-		private Vector2 lastSeenTargetPosition;
 
 		private void Awake()
 		{
@@ -27,7 +25,7 @@ namespace Game.Pandemonium.Cognitive
 		{
 			featureEnemy = GetComponent<FeatureEnemy>();
 			featureAmmoContainer = GetComponent<FeatureAmmoContainer>();
-			ammoSensor = GetComponent<AmmoSensor>();
+			ammoSensor = GetComponent<AmmoReservesSensor>();
 		}
 
 		private void OnEnable()
@@ -50,16 +48,14 @@ namespace Game.Pandemonium.Cognitive
 
 		private void OnEnemySeen(Vector2 position)
 		{
-			if (isOutOfAmmo) return;
-			lastSeenTargetPosition = position;
-			OnPriorityMoveTargetSelected?.Invoke(lastSeenTargetPosition);
+			if (!isOutOfAmmo)
+			OnPriorityMoveTargetSelected?.Invoke(position);
 		}
 
 		private void OnAmmoContainerSeen(Vector2 position)
 		{
-			if (!isOutOfAmmo) return;
-			lastSeenTargetPosition = position;
-			OnPriorityMoveTargetSelected?.Invoke(lastSeenTargetPosition);
+			if (isOutOfAmmo)
+			OnPriorityMoveTargetSelected?.Invoke(position);
 		}
 
 		private void OnEnemySeenByDriver(Vector2 position)
