@@ -13,5 +13,10 @@ namespace Game.Tank
 		{
 			ammo--;
 		}
+		
+		public void Refill(int nbAmmo)
+		{
+			ammo += nbAmmo;
+		}
 	}
 }
