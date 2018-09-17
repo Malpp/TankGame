@@ -5,7 +5,7 @@ namespace Game.Pandemonium.Feature
 {
 	public delegate void TankOutOfAmmoEventHandler(bool isOutOfAmmo);
 	
-	public class AmmoSensor : MonoBehaviour
+	public class AmmoReservesSensor : MonoBehaviour
 	{
 		public event TankOutOfAmmoEventHandler OnTankOutOfAmmo;
 		

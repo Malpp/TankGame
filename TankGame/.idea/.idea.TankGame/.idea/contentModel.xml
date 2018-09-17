@@ -15,7 +15,7 @@
               </e>
               <e p="Decision.cs" t="Include" />
               <e p="Feature" t="Include">
-                <e p="AmmoSensor.cs" t="Include" />
+                <e p="AmmoReservesSensor.cs" t="Include" />
                 <e p="FeatureAmmoContainer.cs" t="Include" />
                 <e p="FeatureEnemy.cs" t="Include" />
               </e>

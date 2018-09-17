@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonShotForce: 300
-  SECONDS_UNTIL_SELFDESTRUCT: 20
+  secondsUntilSelfdestruct: 5
 --- !u!212 &212852571631067000
 SpriteRenderer:
   m_ObjectHideFlags: 1

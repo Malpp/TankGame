@@ -17,5 +17,4 @@ public class AmmoSensor : MonoBehaviour
 			Destroy(transform.parent.gameObject);
 		}
 	}
-
 }

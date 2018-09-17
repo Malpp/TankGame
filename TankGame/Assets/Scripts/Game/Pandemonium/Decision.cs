@@ -50,7 +50,6 @@ namespace Game.Pandemonium
 		private void OnShootTargetFound(Vector2 position)
 		{
 			shootTargetFoundThisFrame = true;
-			
 		}
 
 		private void OnMoveTargetSeenByDriver()
