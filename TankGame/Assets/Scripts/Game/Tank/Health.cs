@@ -17,7 +17,7 @@ namespace Game.Tank
 			}
 		}
 
-		private void Die()
+		internal void Die()
 		{
 			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 			Destroy(transform.root.gameObject);
