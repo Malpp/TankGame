@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Programming\C#\TankGame\TankGame" t="IncludeRecursive">
+    <e p="C:\Users\Samuel\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_TankGame.-1305977787.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Samuel\Documents\Ecole\Nouvelle Technologie\TankGame\TankGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
@@ -54,6 +55,9 @@
             <e p="Values" t="Include">
               <e p="Tags.cs" t="Include" />
             </e>
+            <e p="Zone" t="Include">
+              <e p="ZoneController.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>
@@ -65,7 +69,5 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="C:\Users\Doge\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Doge\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_TankGame.-822822838.00" t="ExcludeRecursive" />
   </component>
 </project>
