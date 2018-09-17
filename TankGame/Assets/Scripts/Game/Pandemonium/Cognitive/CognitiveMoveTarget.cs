@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using Game.Pandemonium.Feature;
+﻿using Game.Pandemonium.Feature;
 using UnityEngine;
 
 namespace Game.Pandemonium.Cognitive
 {
 	public delegate void TopPriorityMoveTargetEventHandler(Vector2 position);
-
 	public delegate void TopPriorityMoveTargetSeenByDriverEventHandler();
 
 	public class CognitiveMoveTarget : MonoBehaviour
@@ -15,6 +13,7 @@ namespace Game.Pandemonium.Cognitive
 
 		private FeatureEnemy featureEnemy;
 		private FeatureAmmoContainer featureAmmoContainer;
+		private AmmoSensor ammoSensor;
 		private bool isOutOfAmmo = false;
 
 		private Vector2 lastSeenTargetPosition;
@@ -28,6 +27,7 @@ namespace Game.Pandemonium.Cognitive
 		{
 			featureEnemy = GetComponent<FeatureEnemy>();
 			featureAmmoContainer = GetComponent<FeatureAmmoContainer>();
+			ammoSensor = GetComponent<AmmoSensor>();
 		}
 
 		private void OnEnable()
@@ -40,6 +40,12 @@ namespace Game.Pandemonium.Cognitive
 			featureAmmoContainer.OnAmmoSeenByDriver += OnAmmoContainerSeenByDriver;
 			featureAmmoContainer.OnAmmoSeenByCommander += OnAmmoContainerSeen;
 			featureAmmoContainer.OnAmmoSeenByTurret += OnAmmoContainerSeen;
+			ammoSensor.OnTankOutOfAmmo += OnTankOutOfAmmo;
+		}
+
+		private void OnTankOutOfAmmo(bool tankIsOutOfAmmo)
+		{
+			isOutOfAmmo = tankIsOutOfAmmo;
 		}
 
 		private void OnEnemySeen(Vector2 position)
