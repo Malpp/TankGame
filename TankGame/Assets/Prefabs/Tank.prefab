@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 5
+  reloadTime: 2
 --- !u!114 &114844674851513146
 MonoBehaviour:
   m_ObjectHideFlags: 1

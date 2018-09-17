@@ -15,6 +15,11 @@
                 <e p="FeatureEnemy.cs" t="Include" />
               </e>
             </e>
+            <e p="PickUp" t="Include">
+              <e p="AmmoController.cs" t="Include" />
+              <e p="AmmoSensor.cs" t="Include" />
+              <e p="AmmoSpawner.cs" t="Include" />
+            </e>
             <e p="Player" t="Include">
               <e p="PlayerTankController.cs" t="Include" />
             </e>
