@@ -11,6 +11,7 @@ namespace Game
 		private int score;
 		private GameObject player;
 		private GameObject enemy;
+		private Coroutine scoreCoroutine;
 
 		public event Delegates.EventHandlerT<int> OnScoreChanged;
 		public event Delegates.EventHandler OnPlayerWin;
@@ -20,17 +21,21 @@ namespace Game
 		{
 			player = GameObject.FindWithTag(Tags.Player);
 			enemy = GameObject.FindWithTag(Tags.Enemy);
-			StartCoroutine(AddScoreCoroutine());
+			scoreCoroutine = StartCoroutine(AddScoreCoroutine());
 		}
 
 		private void FixedUpdate()
 		{
 			if (player == null)
+			{
+				StopCoroutine(scoreCoroutine);
 				OnAIWin?.Invoke();
+			}
 
 			if (score < 60 && enemy != null) return;
 			OnPlayerWin?.Invoke();
 			enemy.GetComponentInChildren<Health>().Die();
+			StopCoroutine(scoreCoroutine);
 		}
 
 		private IEnumerator AddScoreCoroutine()
