@@ -666,7 +666,7 @@ MonoBehaviour:
   moveTankBackward: 115
   turnTankLeft: 97
   turnTankRight: 100
-  shootCannon: 0
+  shootCannon: 32
 --- !u!114 &114838240617135302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 5
+  reloadTime: 2
 --- !u!114 &114844674851513146
 MonoBehaviour:
   m_ObjectHideFlags: 1
