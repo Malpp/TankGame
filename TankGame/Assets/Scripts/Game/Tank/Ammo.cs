@@ -11,6 +11,7 @@ namespace Game.Tank
 		private bool reloading = false;
 
 		public bool CanShoot => ammo > 0 && !reloading;
+		public bool IsOutOfAmmo => ammo > 0;
 
 		public void LoadAmmo()
 		{

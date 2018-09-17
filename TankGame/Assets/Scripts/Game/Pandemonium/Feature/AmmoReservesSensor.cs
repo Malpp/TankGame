@@ -23,7 +23,7 @@ namespace Game.Pandemonium.Feature
 
 		private void Update()
 		{
-			OnTankOutOfAmmo?.Invoke(!ammo.CanShoot);
+			OnTankOutOfAmmo?.Invoke(!ammo.IsOutOfAmmo);
 		}
 	}
 }
