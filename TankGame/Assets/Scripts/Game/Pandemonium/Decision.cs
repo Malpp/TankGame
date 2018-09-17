@@ -6,13 +6,19 @@ namespace Game.Pandemonium
 {
 	public class Decision : MonoBehaviour
 	{
-		[SerializeField] private Vector2 target;
+		[SerializeField] private Vector2 moveTarget;
+		private Vector2 shootTarget;
 		private CognitiveMoveTarget cognitiveMoveTarget;
-		private bool moveTargetFoundThisFrame = false;
-		private bool moveTargetSeenByDriver = false;
+		private CognitiveShootTarget cognitiveShootTarget;
+		
+		private bool moveTargetFoundThisFrame;
+		private bool moveTargetSeenByDriver;
+		private bool shootTargetFoundThisFrame = false;
+		private bool shootTargetSeenByTurret = false;
 
 		private Vector2 lastSeenEnemyPosition;
 		private TankController tankController;
+		private TurretController turretController;
 
 		private void Awake()
 		{
@@ -22,36 +28,59 @@ namespace Game.Pandemonium
 		private void InitializeComponent()
 		{
 			cognitiveMoveTarget = GetComponent<CognitiveMoveTarget>();
+			cognitiveShootTarget = GetComponent<CognitiveShootTarget>();
 			tankController = GetComponent<TankController>();
+			turretController = transform.root.GetComponentInChildren<TurretController>();
 		}
 
 		private void OnEnable()
 		{
-			cognitiveMoveTarget.OnPriorityMoveTargetSelected += OnTargetFound;
-			cognitiveMoveTarget.OnPriorityMoveTargetSeenByDriver += OnTargetSeenByDriver;
+			cognitiveMoveTarget.OnPriorityMoveTargetSelected += OnMoveTargetFound;
+			cognitiveMoveTarget.OnPriorityMoveTargetSeenByDriver += OnMoveTargetSeenByDriver;
+			cognitiveShootTarget.OnPriorityShootTargetSelected += OnShootTargetFound;
+			cognitiveShootTarget.OnPriorityShootTargetSeenByTurret += OnShootTargetSeenByTurret;
 		}
 
-		private void OnTargetFound(Vector2 position)
+		private void OnMoveTargetFound(Vector2 position)
 		{
 			moveTargetFoundThisFrame = true;
-			target = position;
+			moveTarget = position;
 		}
 
-		private void OnTargetSeenByDriver()
+		private void OnShootTargetFound(Vector2 position)
+		{
+			shootTargetFoundThisFrame = true;
+		}
+
+		private void OnMoveTargetSeenByDriver()
 		{
 			moveTargetSeenByDriver = true;
+		}
+		
+		private void OnShootTargetSeenByTurret()
+		{
+			shootTargetSeenByTurret = true;
 		}
 
 		private void LateUpdate()
 		{
 			if (moveTargetFoundThisFrame)
 			{
-				tankController.RotateTowardsTarget(target);
+				tankController.RotateTowardsTarget(moveTarget);
 				moveTargetFoundThisFrame = false;
 				if (moveTargetSeenByDriver)
 				{
 					moveTargetSeenByDriver = false;
 					tankController.MoveForward();
+				}
+			}
+
+			if (shootTargetFoundThisFrame)
+			{
+				if (shootTargetSeenByTurret)
+				{
+					shootTargetSeenByTurret = false;
+					turretController.Shoot();
 				}
 			}
 		}

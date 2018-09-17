@@ -5,14 +5,19 @@
     <e p="C:\Users\Samuel\Documents\Ecole\Nouvelle Technologie\TankGame\TankGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AnimationAutoDestroy.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Game" t="Include">
+            <e p="GameController.cs" t="Include" />
             <e p="Pandemonium" t="Include">
               <e p="Cognitive" t="Include">
                 <e p="CognitiveMoveTarget.cs" t="Include" />
+                <e p="CognitiveShootTarget.cs" t="Include" />
               </e>
               <e p="Decision.cs" t="Include" />
               <e p="Feature" t="Include">
+                <e p="AmmoReservesSensor.cs" t="Include" />
+                <e p="FeatureAmmoContainer.cs" t="Include" />
                 <e p="FeatureEnemy.cs" t="Include" />
               </e>
             </e>
@@ -29,6 +34,7 @@
               <e p="Cannon.cs" t="Include" />
               <e p="CannonShot.cs" t="Include" />
               <e p="CannonShotBody.cs" t="Include" />
+              <e p="Health.cs" t="Include" />
               <e p="Stimulus" t="Include">
                 <e p="CommanderStimulus.cs" t="Include" />
                 <e p="DriverStimulus.cs" t="Include" />
@@ -36,8 +42,14 @@
                 <e p="Stimulus.cs" t="Include" />
                 <e p="TurretStimulus.cs" t="Include" />
               </e>
-              <e p="TankController.cs" t="Include" />
               <e p="TurretController.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="UpdateScore.cs" t="Include" />
+            </e>
+            <e p="utils" t="Include">
+              <e p="Delegates.cs" t="Include" />
+              <e p="TankController.cs" t="Include" />
             </e>
             <e p="Values" t="Include">
               <e p="Tags.cs" t="Include" />

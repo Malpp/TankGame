@@ -5,7 +5,7 @@ using UnityEngine;
 public class CannonShot : MonoBehaviour
 {
 	[SerializeField] private float cannonShotForce;
-	[SerializeField] private float SECONDS_UNTIL_SELFDESTRUCT;
+	[SerializeField] private float secondsUntilSelfdestruct;
 	private Rigidbody2D rigidbody;
 
 	private void Awake()
@@ -21,7 +21,7 @@ public class CannonShot : MonoBehaviour
 
 	private IEnumerator StartDestroyCoroutine()
 	{
-		yield return new WaitForSeconds(SECONDS_UNTIL_SELFDESTRUCT);
+		yield return new WaitForSeconds(secondsUntilSelfdestruct);
 		Destroy(transform.parent.gameObject);
 	}
 }
