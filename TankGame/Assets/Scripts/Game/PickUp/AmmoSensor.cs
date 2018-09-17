@@ -7,6 +7,17 @@ public class AmmoSensor : MonoBehaviour
 {
 	private const string ColliderName = "Body";
 
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		AmmoController ammoController = transform.parent.GetComponentInChildren<AmmoController>();
+		Ammo tankAmmo = other.transform?.GetComponentInChildren<Ammo>();
+		if (other.name == ColliderName && tankAmmo != null)
+		{
+			ammoController.RefillTank(tankAmmo);
+			Destroy(transform.parent.gameObject);
+		}
+	}
+
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		AmmoController ammoController = transform.parent.GetComponentInChildren<AmmoController>();

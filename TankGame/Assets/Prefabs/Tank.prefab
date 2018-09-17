@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4042310783187022}
   - component: {fileID: 212950371549453286}
   - component: {fileID: 61060718096555394}
+  - component: {fileID: 114602784277149832}
   m_Layer: 0
   m_Name: Body
   m_TagString: tank
@@ -106,7 +107,7 @@ GameObject:
   - component: {fileID: 114847690840809870}
   - component: {fileID: 114919116142881328}
   - component: {fileID: 114138790769211564}
-  - component: {fileID: 114101857112284022}
+  - component: {fileID: 114667136266534266}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -380,7 +381,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680866660865002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.75, z: 0}
+  m_LocalPosition: {x: -0.04, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4042310783187022}
@@ -556,24 +557,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastTransformSeen: {fileID: 0}
---- !u!114 &114101857112284022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966980c0dda04502abb94274a5c855c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114138790769211564
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b68090359e92fb24b9a7b7fc13dd3b26, type: 3}
   m_Name: 
@@ -608,7 +598,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9058617230b322d4598053bd4c6fd05c, type: 3}
   m_Name: 
@@ -639,6 +629,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastTransformSeen: {fileID: 0}
+--- !u!114 &114602784277149832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121418766689994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e6f81dbb56ba641b54e769cdfde972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  explosionPrefab: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
+--- !u!114 &114667136266534266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498915806660358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966980c0dda04502abb94274a5c855c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114704690736090034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -657,7 +671,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a2b44652f0dfe8479c41f5628c4f62d, type: 3}
   m_Name: 
@@ -699,7 +713,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcb3c2ba2f2e8bb42a5d6dbc5e82cdf1, type: 3}
   m_Name: 
@@ -710,7 +724,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498915806660358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e896dd0dca2845728403cddd17d710ec, type: 3}
   m_Name: 
@@ -751,7 +765,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2eff423b1e0a77a489d200c03c194005, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.026485443, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -889,7 +903,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cb508391036a81140aa22a97eaa31d45, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.0022239685, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
