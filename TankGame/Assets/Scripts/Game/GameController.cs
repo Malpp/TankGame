@@ -27,16 +27,22 @@ namespace Game
 
 		private void FixedUpdate()
 		{
+			if (someoneWon)
+				return;
+
 			if (player == null)
 			{
 				SomeoneWon();
 				OnAiWin?.Invoke();
 			}
 
-			if (score < 60 && enemy != null) return;
-			OnPlayerWin?.Invoke();
-			enemy.GetComponentInChildren<Health>().Die();
-			SomeoneWon();
+			if (score >= 60 || enemy == null)
+			{
+				SomeoneWon();
+				OnPlayerWin?.Invoke();
+				if (enemy != null)
+					enemy.GetComponentInChildren<Health>().Die();
+			}
 		}
 
 		private IEnumerator AddScoreCoroutine()
