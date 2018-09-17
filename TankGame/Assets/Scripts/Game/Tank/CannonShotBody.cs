@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Tank;
 using Game.Values;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class CannonShotBody : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log("HIT SOMETHING");
+		other.transform.GetComponentInChildren<Health>().TakeHit();
 		StartCoroutine(StartOnHitDestroyCoroutine());
 	}
 
