@@ -50,6 +50,7 @@ namespace Game.Pandemonium
 		private void OnShootTargetFound(Vector2 position)
 		{
 			shootTargetFoundThisFrame = true;
+			shootTarget = position;
 		}
 
 		private void OnMoveTargetSeenByDriver()
@@ -77,6 +78,7 @@ namespace Game.Pandemonium
 
 			if (shootTargetFoundThisFrame)
 			{
+				turretController.RotateTowardsTarget(shootTarget);
 				if (shootTargetSeenByTurret)
 				{
 					shootTargetSeenByTurret = false;

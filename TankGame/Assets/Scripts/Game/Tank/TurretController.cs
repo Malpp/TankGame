@@ -29,5 +29,11 @@ namespace Game.Tank
 		{
 			transform.parent.Rotate(-Vector3.forward, rotationSpeed * Time.deltaTime);
 		}
+		
+		public void RotateTowardsTarget(Vector2 position)
+		{
+			var desiredOrientation = Quaternion.LookRotation(Vector3.forward, position - (Vector2)transform.root.position);
+			transform.parent.rotation = Quaternion.RotateTowards(transform.parent.rotation, desiredOrientation, rotationSpeed * Time.deltaTime * 5);
+		}
 	}
 }
