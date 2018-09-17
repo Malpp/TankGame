@@ -14,7 +14,7 @@ namespace Game.Pandemonium.Cognitive
 		public event TopPriorityMoveTargetSeenByDriverEventHandler OnPriorityMoveTargetSeenByDriver;
 
 		private FeatureEnemy featureEnemy;
-		private FeatureAmmo featureAmmo;
+		private FeatureAmmoContainer featureAmmoContainer;
 		private bool isOutOfAmmo = false;
 
 		private Vector2 lastSeenTargetPosition;
@@ -27,7 +27,7 @@ namespace Game.Pandemonium.Cognitive
 		private void InitializeComponent()
 		{
 			featureEnemy = GetComponent<FeatureEnemy>();
-			featureAmmo = GetComponent<FeatureAmmo>();
+			featureAmmoContainer = GetComponent<FeatureAmmoContainer>();
 		}
 
 		private void OnEnable()
@@ -36,10 +36,10 @@ namespace Game.Pandemonium.Cognitive
 			featureEnemy.OnEnemySeenByDriver += OnEnemySeenByDriver;
 			featureEnemy.OnEnemySeenByCommander += OnEnemySeen;
 			featureEnemy.OnEnemySeenByTurret += OnEnemySeen;
-			featureAmmo.OnAmmoSeenByDriver += OnAmmoSeen;
-			featureAmmo.OnAmmoSeenByDriver += OnAmmoSeenByDriver;
-			featureAmmo.OnAmmoSeenByCommander += OnAmmoSeen;
-			featureAmmo.OnAmmoSeenByTurret += OnAmmoSeen;
+			featureAmmoContainer.OnAmmoSeenByDriver += OnAmmoContainerSeen;
+			featureAmmoContainer.OnAmmoSeenByDriver += OnAmmoContainerSeenByDriver;
+			featureAmmoContainer.OnAmmoSeenByCommander += OnAmmoContainerSeen;
+			featureAmmoContainer.OnAmmoSeenByTurret += OnAmmoContainerSeen;
 		}
 
 		private void OnEnemySeen(Vector2 position)
@@ -49,7 +49,7 @@ namespace Game.Pandemonium.Cognitive
 			OnPriorityMoveTargetSelected?.Invoke(lastSeenTargetPosition);
 		}
 
-		private void OnAmmoSeen(Vector2 position)
+		private void OnAmmoContainerSeen(Vector2 position)
 		{
 			if (!isOutOfAmmo) return;
 			lastSeenTargetPosition = position;
@@ -62,7 +62,7 @@ namespace Game.Pandemonium.Cognitive
 				OnPriorityMoveTargetSeenByDriver?.Invoke();
 		}
 
-		private void OnAmmoSeenByDriver(Vector2 position)
+		private void OnAmmoContainerSeenByDriver(Vector2 position)
 		{
 			if (isOutOfAmmo)
 				OnPriorityMoveTargetSeenByDriver?.Invoke();

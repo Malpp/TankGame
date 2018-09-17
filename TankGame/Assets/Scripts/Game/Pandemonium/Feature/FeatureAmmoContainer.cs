@@ -8,7 +8,7 @@ namespace Game.Pandemonium.Feature
 	public delegate void FeatureAmmoSeenByCommanderEventHandler(Vector2 ammoPosition);
 	public delegate void FeatureAmmoSeenByTurretEventHandler(Vector2 ammoPosition);
 
-	public class FeatureAmmo : MonoBehaviour
+	public class FeatureAmmoContainer : MonoBehaviour
 	{
 		public event FeatureAmmoSeenByDriverEventHandler OnAmmoSeenByDriver;
 		public event FeatureAmmoSeenByCommanderEventHandler OnAmmoSeenByCommander;
