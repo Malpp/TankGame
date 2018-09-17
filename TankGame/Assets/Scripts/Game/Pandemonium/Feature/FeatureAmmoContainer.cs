@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Game.Pandemonium.Feature
 {
-	public delegate void FeatureEnemySeenByDriverEventHandler(Vector2 enemyPosition);
-	public delegate void FeatureEnemySeenByCommanderEventHandler(Vector2 enemyPosition);
-	public delegate void FeatureEnemySeenByTurretEventHandler(Vector2 enemyPosition);
-	
-	public class FeatureEnemy : MonoBehaviour
+	public delegate void FeatureAmmoSeenByDriverEventHandler(Vector2 ammoPosition);
+	public delegate void FeatureAmmoSeenByCommanderEventHandler(Vector2 ammoPosition);
+	public delegate void FeatureAmmoSeenByTurretEventHandler(Vector2 ammoPosition);
+
+	public class FeatureAmmoContainer : MonoBehaviour
 	{
-		public event FeatureEnemySeenByDriverEventHandler OnEnemySeenByDriver;
-		public event FeatureEnemySeenByCommanderEventHandler OnEnemySeenByCommander;
-		public event FeatureEnemySeenByTurretEventHandler OnEnemySeenByTurret;
-		
+		public event FeatureAmmoSeenByDriverEventHandler OnAmmoSeenByDriver;
+		public event FeatureAmmoSeenByCommanderEventHandler OnAmmoSeenByCommander;
+		public event FeatureAmmoSeenByTurretEventHandler OnAmmoSeenByTurret;
+
 		private Transform rootTransform;
 		private DriverStimulus driverStimulus;
 		private CommanderStimulus commanderStimulus;
@@ -41,25 +41,25 @@ namespace Game.Pandemonium.Feature
 
 		private void OnGameObjectSeenByDriver(Collider2D otherCollision2D)
 		{
-			if(ValidateGameObjectIsEnemy(otherCollision2D))
-				OnEnemySeenByDriver?.Invoke(otherCollision2D.transform.root.position);
-		}
-		
-		private void OnGameObjectSeenByCommander(Collider2D otherCollision2D)
-		{
-			if(ValidateGameObjectIsEnemy(otherCollision2D))
-				OnEnemySeenByCommander?.Invoke(otherCollision2D.transform.root.position);
-		}
-		
-		private void OnGameObjectSeenByTurret(Collider2D otherCollision2D)
-		{
-			if(ValidateGameObjectIsEnemy(otherCollision2D))
-				OnEnemySeenByTurret?.Invoke(otherCollision2D.transform.root.position);
+			if (ValidateGameObjectIsAmmo(otherCollision2D))
+				OnAmmoSeenByDriver?.Invoke(otherCollision2D.transform.root.position);
 		}
 
-		private static bool ValidateGameObjectIsEnemy(Collider2D otherCollision2D)
+		private void OnGameObjectSeenByCommander(Collider2D otherCollision2D)
 		{
-			if (otherCollision2D.CompareTag(Tags.Tank))
+			if (ValidateGameObjectIsAmmo(otherCollision2D))
+				OnAmmoSeenByCommander?.Invoke(otherCollision2D.transform.root.position);
+		}
+
+		private void OnGameObjectSeenByTurret(Collider2D otherCollision2D)
+		{
+			if (ValidateGameObjectIsAmmo(otherCollision2D))
+				OnAmmoSeenByTurret?.Invoke(otherCollision2D.transform.root.position);
+		}
+
+		private static bool ValidateGameObjectIsAmmo(Collider2D otherCollision2D)
+		{
+			if (otherCollision2D.CompareTag(Tags.Ammo))
 				return true;
 			return false;
 		}
